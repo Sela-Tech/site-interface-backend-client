@@ -42,6 +42,9 @@ bower_components
 # Optional REPL history
 .node_repl_history
 
+.ignore-text
+/ignore-text
+ignore-text
 # Environment variables
 
 .ignore

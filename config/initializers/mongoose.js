@@ -1,12 +1,16 @@
+"use strict";
+require("dotenv").config();
 var mongoose = require("mongoose");
 
 module.exports = function() {
+  if( process.env.MONGO_URI){
   console.log("Initializer: Mongoose started");
 
   require(ROOT + "/app/models")();
 
   mongoose.Promise = global.Promise;
 
+  
   var connectWithRetry = function() {
     mongoose.connect(
       process.env.MONGO_URI,
@@ -28,4 +32,5 @@ module.exports = function() {
   });
 
   connectWithRetry();
+  }
 };
