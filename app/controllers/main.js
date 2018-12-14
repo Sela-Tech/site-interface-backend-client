@@ -7,63 +7,7 @@ Credentials = mongoose.model("Credentials");
 exports.deleteBS = async(req,res)=>{
   try {
 
-    let evidences = await Evidence.find({});  
-   
-    let all = evidences.map(async (e)=>{
-      
-      if( Boolean(e.author) === "ikeja")  {
-        await Evidence.deleteOne({
-         _id: e._id
-       });
-     }
-
-      if( Boolean(e.latitude) === false && Boolean(e.longitude) === false && Boolean(e.author) === false)  {
-         await Evidence.deleteOne({
-          _id: e._id
-        });
-      }
-
-      if( Boolean(e.author) === false)  {
-         await Evidence.deleteOne({
-          _id: e._id
-        });
-      }
-
-      if( Boolean(e.site_name) === false)  {
-         await Evidence.deleteOne({
-          _id: e._id
-        });
-      }
-      
-
-      if( Boolean(e.site_name) === "ikeja")  {
-         await Evidence.deleteOne({
-          _id: e._id
-        });
-      }
-      
-      if( Boolean(e.author) === "abimbola")  {
-         await Evidence.deleteOne({
-          _id: e._id
-        });
-      }
-      
-
-      
-      if( Boolean(e.author === "ikeja") && Boolean(e.site_name  === "weww")){
-        await Evidence.deleteOne({
-          _id: e._id
-        });
-      }
-      if( Boolean(e.author === "ikeja") && Boolean(e.site_name  === "hgghghh")){
-          await Evidence.deleteOne({
-            _id: e._id
-          });
-        }
-  
-    });
-
-let resolved =     await Promise.all(all);
+let resolved =  await Evidence.deleteMany({});
 
 if(resolved) return res.status(200).json({
   message: "Done"

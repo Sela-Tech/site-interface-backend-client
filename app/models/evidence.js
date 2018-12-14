@@ -11,6 +11,10 @@ var evidenceSchema = new Schema({
     datetime:{
         type: Date
     },
+    images: {
+        type: Array,
+        default:[]
+    },
     evidence_name:{
         type: String
     },
