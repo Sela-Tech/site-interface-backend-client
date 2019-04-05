@@ -25,6 +25,15 @@ var evidenceSchema = new Schema({
       type: String,
       required: true
     },
+    length: {
+        type: String,
+    },
+    width: {
+        type: String,
+    },
+    depth: {
+        type: String,
+    }
   },
    { timestamps: true, 	collection: 'site_registration'});
 
